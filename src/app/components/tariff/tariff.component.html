@@ -1,0 +1,46 @@
+<div class="filters">
+  <button (click)="setSortType('downloadSpeed')">Sort by Download Speed</button>
+  <button (click)="setSortType('uploadSpeed')">Sort by Upload Speed</button>
+  <button (click)="setSortType('price')">Sort by Price</button>
+</div>
+
+<div class="tariff-list">
+  <div class="tariff" *ngFor="let tariff of tariffs; let i = index">
+    <div class="tariff-details">
+      <div class="tariff-number">
+        <h3>{{ i + 1 }}</h3>
+        <div class="vertical-line"></div> <!-- Vertical line -->
+      </div>
+      <div class="tariff-info">
+        <div class="tariff-name">
+          <h3>{{ tariff.name }}</h3>
+        </div>
+        <div class="speed">
+          <div class="download">
+            <p class="download-label" *ngIf="!isTabletOrSmaller">Download:</p> <!-- Show on desktop only -->
+            <div>
+              <img src="assets/download-icon.png" alt="Download icon">
+              <span>{{ tariff.downloadSpeed }} Mbit/s</span>
+            </div>
+          </div>
+          <div class="upload">
+            <p class="upload-label" *ngIf="!isTabletOrSmaller">Upload:</p> <!-- Show on desktop only -->
+            <div *ngIf="!isMobileOrSmaller">
+              <img src="assets/upload-icon.png" alt="Upload icon">
+              <span>{{ tariff.uploadSpeed }} Mbit/s</span>
+            </div>
+          </div>
+        </div>
+        <div class="benefits hidden-sm">
+          <ul>
+            <li *ngFor="let benefit of tariff.benefits">{{ benefit }}</li>
+          </ul>
+        </div>
+        <div class="price">
+          <p>{{ tariff.price }} €</p>
+          <button class="tariff-button">{{ !isMobileOrSmaller ? "To Tariff >" : ">" }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
