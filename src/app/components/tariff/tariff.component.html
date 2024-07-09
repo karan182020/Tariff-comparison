@@ -1,33 +1,33 @@
 <div class="filters">
-  <button (click)="setSortType('downloadSpeed')">Sort by Download Speed</button>
-  <button (click)="setSortType('uploadSpeed')">Sort by Upload Speed</button>
-  <button (click)="setSortType('price')">Sort by Price</button>
+  <button class="sortButton" (click)="setSortType('downloadSpeed')">Sort by Download Speed</button>
+  <button class="sortButton" (click)="setSortType('uploadSpeed')">Sort by Upload Speed</button>
+  <button class="sortButton" (click)="setSortType('price')">Sort by Price</button>
 </div>
 
 <div class="tariff-list">
   <div class="tariff" *ngFor="let tariff of tariffs; let i = index">
     <div class="tariff-details">
       <div class="tariff-number">
-        <h3>{{ i + 1 }}</h3>
-        <div class="vertical-line"></div> <!-- Vertical line -->
+        <p>{{ i + 1 + "."}}</p>
+        <div class="vertical-line"></div>
       </div>
       <div class="tariff-info">
         <div class="tariff-name">
-          <h3>{{ tariff.name }}</h3>
+          <p>{{ tariff.name }}</p>
         </div>
         <div class="speed">
           <div class="download">
-            <p class="download-label" *ngIf="!isTabletOrSmaller">Download:</p> <!-- Show on desktop only -->
+            <p class="download-label hidden-sm" >Download</p> <!-- Show on desktop only -->
             <div>
-              <img src="assets/download-icon.png" alt="Download icon">
-              <span>{{ tariff.downloadSpeed }} Mbit/s</span>
+              <img src="assets/download.png" alt="Download speed" class="download-icon">
+              <span class="download-speed">{{ tariff.downloadSpeed }} Mbit/s</span>
             </div>
           </div>
-          <div class="upload">
-            <p class="upload-label" *ngIf="!isTabletOrSmaller">Upload:</p> <!-- Show on desktop only -->
-            <div *ngIf="!isMobileOrSmaller">
-              <img src="assets/upload-icon.png" alt="Upload icon">
-              <span>{{ tariff.uploadSpeed }} Mbit/s</span>
+          <div class="upload hidden-xm">
+            <p class="upload-label hidden-sm" >Upload</p> <!-- Show on desktop only -->
+            <div class="hidden-sm">
+              <img src="assets/upload.png" alt="Upload speed" class="upload-icon">
+              <span class="upload-speed">{{ tariff.uploadSpeed }} Mbit/s</span>
             </div>
           </div>
         </div>
@@ -37,7 +37,7 @@
           </ul>
         </div>
         <div class="price">
-          <p>{{ tariff.price }} €</p>
+          <p>{{ tariff.price | numberFormat }}€</p>
           <button class="tariff-button">{{ !isMobileOrSmaller ? "To Tariff >" : ">" }}</button>
         </div>
       </div>

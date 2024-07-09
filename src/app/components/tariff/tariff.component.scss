@@ -13,7 +13,7 @@
 .tariff {
   display: flex;
   flex-direction: column;
-  border: 1px solid #ccc;
+  border: 2px solid #111;
   padding: 10px;
   margin: 10px;
   margin-bottom: 20px;
@@ -24,7 +24,10 @@
   justify-content: space-evenly;
 }
 
-.tariff-name, .speed, .benefits, .price {
+.tariff-name,
+.speed,
+.benefits,
+.price {
   flex: 1;
   margin: 0 10px;
 }
@@ -35,21 +38,23 @@
   align-items: flex-start;
 }
 
-.download, .upload {
+.download,
+.upload {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
 }
 
-.download div, .upload div {
+.download div,
+.upload div {
   display: flex;
   align-items: center;
 }
 
-.download img, .upload img {
+.download img,
+.upload img {
   width: 16px;
   height: 16px;
-  margin-right: 5px;
 }
 
 .benefits ul {
@@ -60,6 +65,7 @@
 
 .price {
   text-align: right;
+  font-weight: 900;
 }
 
 button {
@@ -68,10 +74,10 @@ button {
 }
 
 .tariff-info {
-  flex: 1; 
+  flex: 1;
   display: flex;
   align-items: center;
-  justify-content: space-between; 
+  justify-content: space-between;
 }
 
 .tariff-number {
@@ -82,42 +88,74 @@ button {
 
 .vertical-line {
   height: 115%;
-  width: 2px; 
-  background-color: #ccc; 
-  margin-left: 10px; 
-  margin-right: 10px; 
+  width: 1px;
+  background-color: #111;
+  margin-left: 1px;
+  margin-right: 1px;
 }
 
 .speed > div {
   display: flex;
   align-items: center;
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
 .benefits {
-  margin-right: 20px; 
+  margin-right: 20px;
 }
 
-@media (max-width: 768px) {
-  .tariff-details {
-    align-items: flex;
-    text-align: center;
-  }
+.download-icon,
+.upload-icon {
+  border: 1px solid;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 2px;
+  padding-bottom: 1px;
+}
 
+.download-speed,
+.upload-speed {
+  border-top-right-radius: 12px;
+  border-bottom-right-radius: 12px;
+  border: 1px solid;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.download-label {
+  margin-right: 5rem;
+  margin-bottom: 4px;
+}
+
+.upload-label {
+  margin-right: 6rem;
+  margin-bottom: 4px;
+}
+
+.tariff-button {
+  background-color: white;
+  padding-left: 4em;
+  padding-right: 4em;
+}
+
+.sortButton {
+  background-color: white;
+}
+
+// For Tablet
+@media only screen and (min-width: 600px) and (max-width: 1024px) {
   .tariff-number {
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
     display: flex;
     align-items: center;
   }
-
 
   .vertical-line {
     display: none; /* Hide vertical line on tablet and smaller screens */
   }
 
-  .speed {
-    align-items: center; 
-    margin-top: 4px; 
+  .speed .upload {
+    margin-top: 8px;
   }
 
   .hidden-sm {
@@ -125,13 +163,60 @@ button {
   }
 
   .price {
-    display: flex;
+    font-weight: 900;
+  }
+
+  .tariff-button {
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: white;
+  }
+
+  .sortButton {
+    background-color: white;
+  }
+}
+
+// For Mobile
+@media only screen and (max-width: 600px) {
+  .tariff-details {
+    align-items: center;
+    text-align: center;
+    flex-direction: row;
     justify-content: space-between;
+  }
+
+  .vertical-line {
+    display: none; /* Hide vertical line on tablet and smaller screens */
+  }
+
+  .hidden-sm {
+    display: none; /* Hide elements on tablets and smaller */
+  }
+
+  .hidden-xm .hidden-sm {
+    display: none; /* Hide elements on mobile and smaller */
+  }
+
+  .price {
+    display: flex;
   }
 
   .tariff-button {
     height: 5em;
+    margin-left: 4px;
+    padding-left: 1px;
+    padding-right: 1px;
+    background-color: white;
+  }
+
+  .sortButton {
+    background-color: white;
+  }
+
+  .download-icon,
+  .download-speed {
+    border: none;
   }
 
 }
-

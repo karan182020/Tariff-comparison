@@ -1,15 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { TARIFFS } from '../../assets/fake-data';
+import { TARIFFS } from '../../assets/tariff-data';
+import { Tariff } from '../models/tariff.model';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class TariffService {
+  constructor() {}
 
-  constructor() { }
-
-  getTariff(): Observable<any[]> {
+  getTariff(): Observable<Tariff[]> {
     return of(TARIFFS);
   }
 }
