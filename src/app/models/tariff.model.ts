@@ -1,8 +1,8 @@
 export interface Tariff {
-  id: number;
+  id?: number;
   name: string;
-  downloadSpeed: number;
-  uploadSpeed: number;
-  benefits: string[];
+  downloadSpeed?: number;
+  uploadSpeed?: number;
+  benefits?: string[];
   price: number;
 }
