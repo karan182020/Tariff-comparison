@@ -2,7 +2,11 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
 
-This application helps the customers and users to choose the tariff by comparing them based on internet speed and its benefits
+This application helps the customers and users to choose the tariff by comparing them based on internet speed and its benefits.
+
+## Install
+
+Run `npm install` to install the package dependencies.
 
 ## Development server
 
